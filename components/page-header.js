@@ -8,6 +8,12 @@ export default function PageHeader({ className }) {
       >
         Finance App
       </Link>
+      <Link
+        href='/playground'
+        className='text-xl hover:underline underline-offset-8 decoration-2'
+      >
+        Component SandBox
+      </Link>
       <div className='flex items-center space-x-4'>
         <div>Mode Toggle</div>
         <div>User Dropdown</div>
