@@ -10,7 +10,7 @@ export default function PageHeader({ className }) {
         href='/dashboard'
         className='text-xl hover:underline underline-offset-8 decoration-2'
       >
-        Finance App
+        Dashboard
       </Link>
       <Link
         href='/playground'
