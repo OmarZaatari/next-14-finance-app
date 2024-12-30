@@ -30,7 +30,7 @@ export default async function PageHeader({ className }) {
             className={`flex items-center space-x-1 ${variants["ghost"]} ${sizes["sm"]}`}
           >
             <Avatar />
-            <span>{user?.email}</span>
+            <span>{user?.user_metadata?.fullName ?? user?.email}</span>
           </Link>
         )}
         {!user && (
