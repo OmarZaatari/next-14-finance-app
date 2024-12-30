@@ -28,7 +28,7 @@ export default async function PageHeader({ className }) {
             href='/dashboard/settings'
             className={`flex items-center space-x-1 ${variants["ghost"]} ${sizes["sm"]}`}
           >
-            <CircleUser className='w-6 h-6' />
+            <Avatar />
             <span>{user?.email}</span>
           </Link>
         )}
