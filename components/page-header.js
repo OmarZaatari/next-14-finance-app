@@ -5,6 +5,7 @@ import { createClient } from "@/lib/supabase/server";
 import { CircleUser, KeyRound } from "lucide-react";
 import { sizes, variants } from "@/lib/variants";
 import SignOutButton from "./sign-out-button";
+import Avatar from "./avatar";
 
 export default async function PageHeader({ className }) {
   const theme = useServerDarkMode();
