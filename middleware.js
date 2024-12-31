@@ -1,15 +1,19 @@
-import { updateSession } from "./lib/supabase/middleware";
-import { createClient } from "./lib/supabase/server";
+import { updateSession } from './lib/supabase/middleware';
+import { createClient } from './lib/supabase/server';
 // This function can be marked `async` if using `await` inside
 export async function middleware(request) {
+  const supabase = createClient();
   const {
     data: { user },
-  } = await createClient().auth.getUser();
-  if (!user && request.nextUrl.pathname.startsWith("/dashboard")) {
-    return Response.redirect(new URL("/login", request.url));
+  } = await supabase.auth.admin.getUserById(
+    'd373e37f-1777-4a22-a55b-602e4a154d01'
+  );
+  console.log(user);
+  if (!user && request.nextUrl.pathname.startsWith('/dashboard')) {
+    return Response.redirect(new URL('/login', request.url));
   }
-  if (user && request.nextUrl.pathname.startsWith("/login")) {
-    return Response.redirect(new URL("/dashboard", request.url));
+  if (user && request.nextUrl.pathname.startsWith('/login')) {
+    return Response.redirect(new URL('/dashboard', request.url));
   }
   return await updateSession(request);
 }
@@ -22,6 +26,6 @@ export const config = {
      * - _next/image (image optimization files)
      * - favicon.ico (favicon file)
      */
-    "/((?!api|_next/static|_next/image|favicon.ico).*)",
+    '/((?!api|_next/static|_next/image|favicon.ico).*)',
   ],
 };
