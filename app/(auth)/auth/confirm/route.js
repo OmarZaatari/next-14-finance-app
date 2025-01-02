@@ -22,7 +22,4 @@ export async function GET(NextRequest) {
       redirect(next);
     }
   }
-
-  // redirect the user to an error page with some instructions
-  redirect('/login');
 }
