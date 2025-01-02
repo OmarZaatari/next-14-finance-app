@@ -1,6 +1,6 @@
 'use client';
 import Input from '@/components/input';
-import { login } from '@/lib/actions';
+import { signUpNewUser } from '@/lib/actions';
 import SubmitButton from '@/components/submit-button';
 import { useFormState } from 'react-dom';
 import Link from 'next/link';
@@ -11,8 +11,8 @@ const initialState = {
   error: false,
 };
 
-export default function LoginForm() {
-  const [state, formAction] = useFormState(login, initialState);
+export default function SignUpForm() {
+  const [state, formAction] = useFormState(signUpNewUser, initialState);
   return (
     <form action={formAction} className='space-y-2'>
       <Input
@@ -25,8 +25,8 @@ export default function LoginForm() {
       <SubmitButton type='submit' size='sm' className='w-full'>
         Sign in with email
       </SubmitButton>
-      <Link href='/signup' className='m-2 mt-8 hover:underline'>
-        Don't have an account? Sign Up!
+      <Link href='/login' className='m-2 mt-8 hover:underline'>
+        Have an account? Login!
       </Link>
       <p
         className={`${
