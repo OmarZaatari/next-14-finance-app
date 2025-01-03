@@ -3,8 +3,8 @@ const nextConfig = {
   async redirects() {
     return [
       {
-        source: "/",
-        destination: "/dashboard",
+        source: '/',
+        destination: '/dashboard',
         permanent: true,
       },
     ];
@@ -12,9 +12,9 @@ const nextConfig = {
   images: {
     remotePatterns: [
       {
-        protocol: "https",
-        hostname: "*.supabase.co",
-        port: "",
+        protocol: 'https',
+        hostname: '*.supabase.co',
+        port: '',
       },
     ],
   },
