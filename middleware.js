@@ -2,13 +2,9 @@ import { updateSession } from './lib/supabase/middleware';
 import { createClient } from './lib/supabase/server';
 // This function can be marked `async` if using `await` inside
 export async function middleware(request) {
-  const supabase = createClient();
   const {
     data: { user },
-  } = await supabase.auth.admin.getUserById(
-    'd373e37f-1777-4a22-a55b-602e4a154d01'
-  );
-  console.log(user);
+  } = await createClient().auth.getUser();
   if (!user && request.nextUrl.pathname.startsWith('/dashboard')) {
     return Response.redirect(new URL('/login', request.url));
   }
